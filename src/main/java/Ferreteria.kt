@@ -1,3 +1,1 @@
-class Ferreteria(var nombre : String ) {
-
-}
+class Ferreteria(var nombre : String ) 
