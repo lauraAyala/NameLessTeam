@@ -11,7 +11,6 @@ class TestFerreteria {
 
        var ferreteria = Ferreteria("Stanley")
 
-       //assert(ferreteria.nombre == "Stanley" )
         assertEquals("Stanley",ferreteria.nombre,"es correcto")
 
 
