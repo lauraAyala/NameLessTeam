@@ -14,6 +14,8 @@ class Ferreteria(var nombre : String) {
     fun agregarProducto(producto : Producto){
         this.productos.add(producto)
     }
+
+
 }
 
 

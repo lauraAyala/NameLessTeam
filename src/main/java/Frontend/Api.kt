@@ -1,8 +1,7 @@
 package Frontend
 
 import io.javalin.Javalin
-import io.javalin.apibuilder.ApiBuilder.path
-import io.javalin.apibuilder.ApiBuilder.post
+import io.javalin.apibuilder.ApiBuilder.*
 import io.javalin.core.util.RouteOverviewPlugin
 
 fun main(args: Array<String>) {
@@ -29,6 +28,9 @@ class ApiFerreteria(private val  port:Int) {
             }
             path("registrarProducto"){
                 post(apiController::crearProducto)
+            }
+            path("/productos") {
+                get(apiController::getProductos)
             }
         }
         return app

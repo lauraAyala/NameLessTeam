@@ -40,4 +40,9 @@ class ControllerStock(){
         }
     }
 
+    fun getProductos(ctx: Context) {
+        ctx.status(200)
+        ctx.json(ferreteria.productos.map { ProductoView(it) })
+    }
+
 }
