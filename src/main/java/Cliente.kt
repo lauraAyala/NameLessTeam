@@ -1,1 +1,0 @@
-class Cliente(var nombre : String )
