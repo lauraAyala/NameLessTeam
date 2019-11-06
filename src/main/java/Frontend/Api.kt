@@ -27,6 +27,9 @@ class ApiFerreteria(private val  port:Int) {
             path("registrar") {
                 post(apiController::crearCliente)
             }
+            path("registrarProducto"){
+                post(apiController::crearProducto)
+            }
         }
         return app
     }
