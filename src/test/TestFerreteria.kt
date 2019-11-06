@@ -1,7 +1,9 @@
 import Backend.Cliente
 import Backend.Ferreteria
+import Backend.Producto
 import org.junit.jupiter.api.*
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
@@ -70,5 +72,14 @@ class TestFerreteria {
         assertEquals(true,ferreteria.clientes.contains(cliente),"es correcto")
     }
 
+    @Test
+    fun test09SeAgregaUnProductoALaFerreteria(){
+        var producto = Producto(1,"Tornillo de 2 pulgadas", true, false,10.0,25.0)
+        var ferreteria = Ferreteria("Stanley")
+        ferreteria.agregarProducto(producto)
+
+        assertEquals(1, ferreteria.productos.size)
+        assertTrue(ferreteria.productos.contains(producto))
+    }
 
 }
