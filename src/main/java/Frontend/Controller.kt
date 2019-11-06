@@ -4,19 +4,17 @@ import Backend.Cliente
 import Backend.Ferreteria
 import Backend.Producto
 import io.javalin.http.Context
-import io.javalin.http.Handler
-import jdk.internal.org.objectweb.asm.Handle
+import Frontend.Handler
 
 class ControllerStock(){
 
     val ferreteria = Ferreteria("Bacco")
 
     fun crearCliente(ctx : Context){
+        val validar = Validar()
+        val cliente = validar.validarCliente(ctx)
         try{
-            val cliente = Validar().validarCliente(ctx)
-           //val cliente = ctx.bodyAsClass(ClienteView:: class .java)
-
-            val clienteNuevo = Cliente(cliente.nombre,cliente.apellido,cliente.domicilio,cliente.contacto,cliente.cuit,cliente.esConsumidorfinal,cliente.esResponsableInscripto);
+            val clienteNuevo = Cliente(cliente.nombre,cliente.apellido,cliente.domicilio,cliente.contacto,cliente.cuit,cliente.esConsumidorFinal,cliente.esResponsableInscripto);
 
             ferreteria.agregarCliente(clienteNuevo);
 
@@ -24,8 +22,7 @@ class ControllerStock(){
             ctx.json(clienteNuevo)
         }
         catch(e: IllegalArgumentException){
-
-            ctx.status(400)
+            ctx.json(Handler(400,"Bad_Request","El cliente ya existe"))
         }
     }
 
@@ -39,7 +36,7 @@ class ControllerStock(){
             ctx.status(201)
             ctx.json(producto)
         }catch(e: IllegalArgumentException){
-            ctx.json(Frontend.Handler(400,"Bad_Request","El producto ya existe"))
+            ctx.json(Handler(400,"Bad_Request","El producto ya existe"))
         }
     }
 

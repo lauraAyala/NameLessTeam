@@ -53,7 +53,7 @@ class TestFerreteria {
     fun test06VerificoSiUnClienteEsConsumidorfinal(){
         var cliente = Cliente("Gerardo","Caseres","Las Rosas1432",45678903,"23456789459",true,false);
 
-        assertEquals(true,cliente.esConsumidorfinal,"es correcto")
+        assertEquals(true,cliente.esConsumidorFinal,"es correcto")
     }
 
     @Test
