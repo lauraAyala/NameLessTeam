@@ -1,6 +1,7 @@
 import Backend.Cliente
 import Backend.Ferreteria
 import Backend.Producto
+import Backend.Venta
 import org.junit.jupiter.api.*
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -80,6 +81,22 @@ class TestFerreteria {
 
         assertEquals(1, ferreteria.productos.size)
         assertTrue(ferreteria.productos.contains(producto))
+    }
+
+    @Test
+    fun test10QuieroVerLasComprasDeUnCliente(){
+        var cliente = Cliente("Jose","Tornillo", "Calle falsa 123", 1143657100,"20-43657100-4",true,false);
+        var ferreteria = Ferreteria("Stanley");
+        var producto = Producto(1,"Tornillo de 2 pulgadas", true, false,10.0,25.0);
+        ferreteria.agregarCliente(cliente);
+        ferreteria.agregarProducto(producto);
+
+        ferreteria.realizarVenta(producto,cliente);
+        ferreteria.comprasRealizadasPor(cliente);
+
+        var unaVenta = Venta(producto,cliente)
+        assertEquals(unaVenta, ferreteria.comprasRealizadasPor(cliente))
+
     }
 
 }
