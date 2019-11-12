@@ -1,6 +1,6 @@
+import './App.css';
 import React from 'react';
 import {withRouter} from 'react-router';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";

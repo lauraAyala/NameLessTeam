@@ -1,8 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
+import React from 'react';
+import {Route, Switch} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
+import Home from './componente/Home';
+import RegistrarCliente from "./componente/RegistarCliente";
 
-function App() {
+
+
+/*function App() {
     return (
         <form>
             <div className="App">
@@ -27,5 +33,23 @@ function App() {
     </form>
 );
 }
+
+export default App;*/
+
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/home" render={props => <Home user={props.location.state}/>}/>
+                <Route path="/registrarCliente" render={props => <RegistrarCliente user={props.location.state}/>}/>
+                <Route path="/" render={props => <Home {...props} />}/>
+            </Switch>
+        </BrowserRouter>
+
+    );
+
+}
+
 
 export default App;
