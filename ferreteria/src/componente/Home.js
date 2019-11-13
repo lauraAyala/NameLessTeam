@@ -19,11 +19,10 @@ class Home extends React.Component {
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/home">Hardware Storage</Navbar.Brand>
+                    <Navbar.Brand href="/home">Ferretería</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/RegistrarCliente">Registrar Cliente</Nav.Link>
                         <Nav.Link href="/registrarProducto">Registrar Producto</Nav.Link>
-                        <Nav.Link href="#pricing">New Feature</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2"/>

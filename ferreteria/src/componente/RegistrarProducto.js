@@ -62,7 +62,11 @@ export default class RegistrarProducto extends Component {
                    
     })
 
-  }    
+  }
+
+    handleClickBack() {
+        this.props.history.push(`home`);
+    }
 
   renderInput(label, value, inputType, onChange) {
     return (
@@ -83,7 +87,9 @@ export default class RegistrarProducto extends Component {
           <div className="col-3" />
           <div className="col-6 card newCard">
             <div className="card-body">
-              
+
+              <h1> Registrar Producto </h1>
+
               {this.renderInput('IdCodigo', this.state.idCodigo, 'text', this.changeIdCodigo)}
               {this.renderInput('Descripcion', this.state.descripcion, 'text', this.changeDescripcion)}
               {this.renderInput('PrecioCompra', this.state.precioCompra, 'text', this.changePrecioCompra)}
@@ -93,7 +99,8 @@ export default class RegistrarProducto extends Component {
 
               <div className="col-12">
                 <button type="button" className="btn btn-primary btn-block" onClick={this.executeRegister}>Registrar</button>
-              </div> 
+                <button type="button" className="btn btn-primary btn-block" onClick={() => this.handleClickBack()}>Volver</button>
+                </div>
             </div>
           </div>
         </div>

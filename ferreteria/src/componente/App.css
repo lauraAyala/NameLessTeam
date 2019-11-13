@@ -37,4 +37,18 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
+
+.col-3{
+  background-image: url("registerv55.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  min-width: 50vh;
+  padding-left: 300vh;
+}
   

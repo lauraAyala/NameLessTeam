@@ -63,11 +63,10 @@ class RegistrarCliente extends React.Component {
             <div>
                 <div>
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand href="/home">Hardware Storage</Navbar.Brand>
+                        <Navbar.Brand href="/home">Ferretería</Navbar.Brand>
                         <Nav className="mr-auto">
                             <Nav.Link href="/RegistrarCliente">Registrar Cliente</Nav.Link>
-                            <Nav.Link href="#features">Registrar Producto</Nav.Link>
-                            <Nav.Link href="#pricing">New Feature</Nav.Link>
+                            <Nav.Link href="/RegistrarProducto">Registrar Producto</Nav.Link>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
@@ -77,6 +76,7 @@ class RegistrarCliente extends React.Component {
                 </div>
                 <div className={"RegistarCliente"}>
                     <Form>
+                        <h1>Registrar Cliente</h1>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formNombre">
                                 <Form.Label>Nombre</Form.Label>
