@@ -10,8 +10,6 @@ export default class RegistrarProducto extends Component {
       
       idCodigo: '', 
       descripcion:'',
-      aplicaDescuento:'',
-      aplicaPromo:'',
       precioCompra:'',
       precioVenta:'',
       error: ''
@@ -21,8 +19,6 @@ export default class RegistrarProducto extends Component {
 
      this.changeIdCodigo = this.changeIdCodigo.bind(this);
      this.changeDescripcion = this.changeDescripcion.bind(this);
-     this.changeAplicarDescuento = this.changeAplicarDescuento.bind(this);
-     this.changeAplicarPromo = this.changeAplicarPromo.bind(this);
      this.changePrecioCompra = this.changePrecioCompra.bind(this);
      this.changePrecioVenta = this.changePrecioVenta.bind(this);
      this.executeRegister = this.executeRegister.bind(this);
@@ -38,13 +34,13 @@ export default class RegistrarProducto extends Component {
   }
   
 
-  changeAplicarDescuento(event) {
+  /*changeAplicarDescuento(event) {
     this.setState({ aplicaDescuento: event.target.value });
   }
 
   changeAplicarPromo(event) {
     this.setState({ aplicaPromo: event.target.value });
-  }
+  }*/
 
   changePrecioCompra(event) {
     this.setState({ precioCompra: event.target.value });
@@ -55,7 +51,7 @@ export default class RegistrarProducto extends Component {
   }
 
   executeRegister() {
-    registrarProducto({ idCodigo: this.state.idCodigo, descripcion: this.state.descripcion, aplicaDescuento: this.state.aplicaDescuento, aplicaPromo: this.state.aplicaPromo, precioCompra: this.state.precioCompra, precioVenta: this.state.precioVenta})
+    registrarProducto({ idCodigo: this.state.idCodigo, descripcion: this.state.descripcion, precioCompra: this.state.precioCompra, precioVenta: this.state.precioVenta})
     .then((res)=>{   
       console.log(res)
       this.props.history.push('/home');  
@@ -90,8 +86,6 @@ export default class RegistrarProducto extends Component {
               
               {this.renderInput('IdCodigo', this.state.idCodigo, 'text', this.changeIdCodigo)}
               {this.renderInput('Descripcion', this.state.descripcion, 'text', this.changeDescripcion)}
-              {this.renderInput('AplicarDescuento', this.state.aplicaDescuento, 'text', this.changeAplicarDescuento)}
-              {this.renderInput('AplicarPromo', this.state.aplicaPromo, 'text', this.changeAplicarPromo)}
               {this.renderInput('PrecioCompra', this.state.precioCompra, 'text', this.changePrecioCompra)}
               {this.renderInput('PrecioVenta', this.state.precioVenta, 'text', this.changePrecioVenta)}
 

@@ -31,7 +31,7 @@ class ControllerStock(){
         val nuevoProducto = validar.validarProducto(ctx)
 
         try{
-            val producto = Producto(nuevoProducto.idCodigo, nuevoProducto.descripcion, nuevoProducto.aplicaDescuento, nuevoProducto.aplicaPromo, nuevoProducto.precioCompra, nuevoProducto.precioVenta)
+            val producto = Producto(nuevoProducto.idCodigo, nuevoProducto.descripcion, nuevoProducto.precioCompra, nuevoProducto.precioVenta)
             ferreteria.agregarProducto(producto)
             ctx.status(201)
             ctx.json(producto)
