@@ -22,7 +22,7 @@ class Home extends React.Component {
                     <Navbar.Brand href="/home">Hardware Storage</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link href="/RegistrarCliente">Registrar Cliente</Nav.Link>
-                        <Nav.Link href="/RegistrarCliente">Registrar Producto</Nav.Link>
+                        <Nav.Link href="/registrarProducto">Registrar Producto</Nav.Link>
                         <Nav.Link href="#pricing">New Feature</Nav.Link>
                     </Nav>
                     <Form inline>

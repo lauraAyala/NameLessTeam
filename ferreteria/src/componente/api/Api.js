@@ -8,3 +8,4 @@ const request = (type, path, body) => axios
 
 
 export const register = body => request('post', '/registrar', body);
+export const registrarProducto = body => request('post', '/registrarProducto', body);

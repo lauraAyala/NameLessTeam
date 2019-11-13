@@ -12,6 +12,7 @@ class ApiFerreteria(private val  port:Int) {
 
     fun init(): Javalin {
         val app = Javalin.create {
+            it.enableCorsForAllOrigins()
             it.registerPlugin(RouteOverviewPlugin("/routes"))
 
         }.exception(Exception::class.java) { e, ctx ->
