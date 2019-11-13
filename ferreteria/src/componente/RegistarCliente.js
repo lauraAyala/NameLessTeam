@@ -46,7 +46,7 @@ class RegistrarCliente extends React.Component {
             esResponsableInscripto: esResponsableInscripto
         });
 
-        let endpoint = '/registrar';
+        let endpoint = 'http://localhost:7000/registrar';
 
         axios.post(endpoint, params)
             .then(response => this.props.history.push('/', response.body))
