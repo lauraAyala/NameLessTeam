@@ -4,7 +4,9 @@ La estimacion de nuestro sprint es de 16 puntos de historia.
 Teniendo en cuenta todos los criterios de evaluacion el pivote para todo el equipo es de 5 puntos de historia.
 
 Las historias de usuario  a realizar en el el sprint son:
- 1- Registrar un cliente 
- 2- Registrar un producto      
- 3- Ver las comprar realizadas por un cliene
- 4- Ver los productos disponibles
+ 1- Yo como: administrador Quiero: registrar un cliente Para: llevar un registro de mis clientes
+ 2- Yo como: administrador Quiero: registrar un producto Para: llevar un registro  de mis productos      
+ 3- Yo como: administrador Quiero: ver las compras realizadas por un cliente Para: saber los consumos de ese cliente
+ 4- Yo como: administrador Quiero: ver los productos disponibles Para: saber el stock de mis productos
+
+ 
