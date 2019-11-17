@@ -1,10 +1,9 @@
 package Frontend
 
-import Backend.Cliente
-import Backend.Ferreteria
-import Backend.Producto
+import backend.modelo.Cliente
+import backend.modelo.Ferreteria
+import backend.modelo.Producto
 import io.javalin.http.Context
-import Frontend.Handler
 
 class ControllerStock(){
 
@@ -14,7 +13,7 @@ class ControllerStock(){
         val validar = Validar()
         val cliente = validar.validarCliente(ctx)
         try{
-            val clienteNuevo = Cliente(cliente.nombre,cliente.apellido,cliente.domicilio,cliente.contacto,cliente.cuit,cliente.esConsumidorFinal,cliente.esResponsableInscripto);
+            val clienteNuevo = Cliente(cliente.idCliente,cliente.nombre, cliente.apellido, cliente.domicilio, cliente.contacto, cliente.cuit, cliente.esConsumidorFinal, cliente.esResponsableInscripto);
 
             ferreteria.agregarCliente(clienteNuevo);
 

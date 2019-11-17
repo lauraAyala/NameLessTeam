@@ -1,10 +1,7 @@
-import Backend.Cliente
-import Backend.Ferreteria
-import Backend.Producto
-import Backend.Venta
+import backend.modelo.Ferreteria
+//import Backend.modelo.Venta
 import org.junit.jupiter.api.*
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
@@ -19,7 +16,7 @@ class TestFerreteria {
         assertEquals("Stanley",ferreteria.nombre,"es correcto")
     }
 
-    @Test
+  /*  @Test
     fun test02VerificoElNombreDeUnCliente(){
 
         var cliente = Cliente("Gerardo","Caseres","Las Rosas1432",45678903,"23456789459",true,false);
@@ -97,6 +94,6 @@ class TestFerreteria {
         var unaVenta = Venta(producto,cliente)
         assertEquals(unaVenta, ferreteria.comprasRealizadasPor(cliente))
 
-    }
+    }*/
 
 }

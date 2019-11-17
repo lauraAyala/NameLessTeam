@@ -1,5 +1,5 @@
-package Backend
-import kotlin.random.Random
+package backend.modelo
+
 
 class Ferreteria(var nombre : String) {
 

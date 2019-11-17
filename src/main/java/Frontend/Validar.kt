@@ -1,8 +1,6 @@
 package Frontend
 
-import Backend.Cliente
 import io.javalin.http.Context
-import io.javalin.http.Handler
 
 class Validar {
 
