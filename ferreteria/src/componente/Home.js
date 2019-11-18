@@ -17,7 +17,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={"MainPageTop"}>
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="/home">Ferretería</Navbar.Brand>
                     <Nav className="mr-auto">
@@ -29,9 +29,9 @@ class Home extends React.Component {
                         <Button variant="outline-info">Search</Button>
                     </Form>
                 </Navbar>
-
+                <div className={"MainPageMiddle"}>
+                </div>
             </div>
-
         );
     }
 

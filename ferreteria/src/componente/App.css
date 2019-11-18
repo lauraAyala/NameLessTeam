@@ -1,54 +1,82 @@
 .App {
-    text-align: left;
-  
-  }
-  
-  .App-logo {
-    display: flow-root;
-    height: 300px;
-    width: 300px;
-  
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: normal;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    background-image: url("http://ferricampos.com/wp-content/uploads/2018/12/herramientas-de-costruccion.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .App-link {
-    color: #09d3ac;
-  }
-  
-  .RegistarCliente{
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+  text-align: left;
+}
 
-.col-3{
-  background-image: url("registerv55.jpg");
+.App-logo {
+  display: flow-root;
+  height: 300px;
+  width: 300px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-image: url("http://ferricampos.com/wp-content/uploads/2018/12/herramientas-de-costruccion.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 50vh;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.RegistrarCliente{
+  background-image: url("Fondo.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  min-width: 50vh;
-  padding-left: 300vh;
+
 }
-  
+
+.RegistrarProducto{
+  background-image: url("Fondo.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.container {
+  color: white;
+  background-color: rgba(0, 0, 9, .6);
+  width: 650px !important;
+}
+
+.btn-block {
+  width: 30% !important;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 67%;
+  padding-left: 30px;
+}
+
+.col-sm-9{
+  left: 70px!important;
+}
+
+.formApellido{
+  width: 100%!important;;
+}
+
+.h1{
+  left: 30px;
+}
