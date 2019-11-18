@@ -111,8 +111,8 @@ export default class RegistrarProducto extends Component {
                             <Form.Row>{this.renderInput('PrecioVenta', this.state.precioVenta, 'text', this.changePrecioVenta)}</Form.Row>
 
                             <div className="col-12">
-                                <button type="button" className="btn btn-primary btn-block" onClick={this.executeRegister}>Registrar</button>
-                                <button type="button" className="btn btn-primary btn-block" onClick={() => this.handleClickBack()}>Volver</button>
+                                <button type="button" className="btn btn-primary" onClick={this.executeRegister}>Registrar</button>
+                                <button type="button" className="btn btn-secondary" onClick={() => this.handleClickBack()}>Volver</button>
                             </div>
                         </Form>
                     </div>

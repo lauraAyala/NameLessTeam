@@ -127,10 +127,10 @@ class RegistrarCliente extends React.Component {
                                                 onChange={event => this.handleChange(event.target.value, 'esResponsableInscripto')}/>
                                 </Form.Group>
                             </Form.Row>
-                            <Button className={"RegisterButton"} onClick={() => this.handleClick()}>
+                            <Button className="btn btn-primary" onClick={() => this.handleClick()}>
                                 Registrar
                             </Button>
-                            <Button className="cancelButton" onClick={() => this.handleClick2()}>Cancelar</Button>
+                            <Button className="btn btn-secondary" onClick={() => this.handleClick2()}>Cancelar</Button>
                         </Form>
                     </div>
                 </div>
