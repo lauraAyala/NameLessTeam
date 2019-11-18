@@ -13,7 +13,7 @@ class ControllerStock(){
         val validar = Validar()
         val cliente = validar.validarCliente(ctx)
         try{
-            val clienteNuevo = Cliente(cliente.idCliente,cliente.nombre, cliente.apellido, cliente.domicilio, cliente.contacto, cliente.cuit, cliente.esConsumidorFinal, cliente.esResponsableInscripto);
+            val clienteNuevo = Cliente(cliente.nombre,cliente.apellido,cliente.domicilio,cliente.contacto,cliente.cuit,cliente.esConsumidorFinal,cliente.esResponsableInscripto);
 
             ferreteria.agregarCliente(clienteNuevo);
 
@@ -42,6 +42,11 @@ class ControllerStock(){
     fun getProductos(ctx: Context) {
         ctx.status(200)
         ctx.json(ferreteria.productos.map { ProductoView(it) })
+    }
+
+    fun getClientes(ctx: Context){
+        ctx.status(200)
+        ctx.json(ferreteria.clientes.map { ClienteView(it) })
     }
 
 }

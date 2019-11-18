@@ -33,6 +33,9 @@ class ApiFerreteria(private val  port:Int) {
             path("/productos") {
                 get(apiController::getProductos)
             }
+            path("/clientes") {
+                get(apiController::getClientes)
+            }
         }
         return app
     }
