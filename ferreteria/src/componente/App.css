@@ -1,91 +1,32 @@
 .App {
-  text-align: left;
+    text-align: left;
 }
 
 .App-logo {
-  display: flow-root;
-  height: 300px;
-  width: 300px;
+    display: flow-root;
+    height: 300px;
+    width: 300px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: normal;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background-image: url("http://ferricampos.com/wp-content/uploads/2018/12/herramientas-de-costruccion.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-image: url("fondoweb.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .App-link {
-  color: #09d3ac;
+    color: #09d3ac;
 }
 
-.RegistrarCliente{
-  background-image: url("fondo2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-
-}
-
-.RegistrarProducto{
-    background-image: url("fondo2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.container {
-  color: white;
-  background-color: rgba(0, 0, 9, .6);
-  width: 650px !important;
-  margin-top: 114px;
-}
-
-.btn-block {
-  width: 30% !important;
-}
-
-.col-12 {
-  flex: 0 0 100%;
-  max-width: 67%;
-  padding-left: 30px;
-}
-
-.col-sm-9{
-  left: 70px!important;
-}
-
-.formApellido{
-  width: 100%!important;;
-}
-
-.h1{
-  left: 30px;
-}
-
-.MainPageMiddle{
-    background-image: url("fondo2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.Home {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -93,4 +34,80 @@
     align-items: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    background-image: url("fondoweb.jpg")
+}
+
+.MiddlePage {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-image: url("fondoweb.jpg");
+    font-palette: dark;
+}
+
+.MainPageMiddle {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    background-image: url("fondoweb.jpg")
+}
+
+.RegistrarProducto {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-image: url("fondoweb.jpg");
+
+}
+
+.col-3 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    min-width: 50vh;
+    padding-left: 300vh;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-45 {
+    margin-bottom: 45px;
+}
+
+.p30 {
+    padding: 30px;
+}
+
+.ml-1rem {
+    margin-left: 1rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.FormContainer {
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    padding: 10px 20px;
 }
