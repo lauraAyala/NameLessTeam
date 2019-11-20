@@ -1,10 +1,11 @@
 package backend.service
 
+import backend.dao.ClienteDAO
 import backend.modelo.Cliente
-import backend.dao.ClienteDao
-import backend.dao.DataDao
+import backend.dao.DataDAO
 
 
+/*
 class ClienteService(val clienteDao: ClienteDao, val dataDao: DataDao) {
 
     val allClientes: Collection<Cliente?>?
@@ -23,4 +24,16 @@ class ClienteService(val clienteDao: ClienteDao, val dataDao: DataDao) {
     }
 
 
+}*/
+
+class ClienteService(){
+    private val clienteDAO: ClienteDAO? = null
+    private val dataDAO: DataDAO? = null
+
+    val allClientes: Collection<Cliente?>?
+        get() = run { this.clienteDAO!!.getAll()}
+
+    fun guardarCliente(cliente: Cliente) {
+        run { this.clienteDAO!!.guardar(cliente) }
+    }
 }

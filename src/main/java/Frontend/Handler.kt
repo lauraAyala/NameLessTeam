@@ -5,7 +5,7 @@ import backend.modelo.Producto
 
 open class Handler(val code: Int, val type: String, open val message: String)
 
-data class ClienteView(val nombre: String, val apellido: String, val domicilio: String, val contacto: Int, val cuit: String, val esConsumidorFinal: Boolean, val esResponsableInscripto: Boolean) {
+data class ClienteView(val nombre: String, val apellido: String, val domicilio: String, val contacto: Int, val cuit: Int, val esConsumidorFinal: Boolean, val esResponsableInscripto: Boolean) {
     constructor(cliente: Cliente) : this(cliente.nombre, cliente.apellido, cliente.domicilio, cliente.contacto, cliente.cuit, cliente.esConsumidorFinal, cliente.esConsumidorFinal)
 }
 

@@ -4,7 +4,6 @@ package backend.service.runner
 import org.hibernate.Session
 import org.hibernate.SessionFactory
 import org.hibernate.cfg.Configuration
-
 class SessionFactoryProvider private constructor() {
 
     private val sessionFactory: SessionFactory?
@@ -28,7 +27,7 @@ class SessionFactoryProvider private constructor() {
                 if (INSTANCE == null) {
                     INSTANCE = SessionFactoryProvider()
                 }
-                return INSTANCE!!
+                return INSTANCE !!
             }
 
         fun destroy() {
