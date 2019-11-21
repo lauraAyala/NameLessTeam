@@ -3,6 +3,7 @@ package backend.service
 import backend.dao.ClienteDAO
 import backend.modelo.Cliente
 import backend.dao.DataDAO
+import javax.transaction.Transactional
 
 
 /*
@@ -26,8 +27,9 @@ class ClienteService(val clienteDao: ClienteDao, val dataDao: DataDao) {
 
 }*/
 
+
 class ClienteService(){
-    private val clienteDAO: ClienteDAO? = null
+    private var clienteDAO = ClienteDAO()
     private val dataDAO: DataDAO? = null
 
     val allClientes: Collection<Cliente?>?

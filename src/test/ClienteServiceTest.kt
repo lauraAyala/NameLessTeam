@@ -29,7 +29,7 @@ class  ClienteServiceTest {
                     SessionFactoryProvider.destroy()
                     service!!.clear()
     }*/
-
+    /*
     @Test
     fun test_get_all() {
         var service: ClienteService? = null
@@ -43,7 +43,7 @@ class  ClienteServiceTest {
         val clientes: Collection<Cliente?>? = service!!.allClientes
         assertEquals(1, clientes!!.size)
     }
-
+    */
 
 
 }
