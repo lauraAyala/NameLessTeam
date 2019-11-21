@@ -1,65 +1,50 @@
 import React, {Component} from 'react';
-import {registrarProducto} from './api/Api';
+import {registrarVenta} from './api/Api';
 import Form from "react-bootstrap/Form";
 
 
-export default class RegistrarProducto extends Component {
+export default class RealizarVenta extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            idCodigo: '',
-            descripcion: '',
-            precioCompra: '',
+            codigoProducto: '',
+            clienteId: '',
             precioVenta: '',
-            stock: '',
+            unidades: '',
             error: ''
         };
 
-        this.changeIdCodigo = this.changeIdCodigo.bind(this);
-        this.changeDescripcion = this.changeDescripcion.bind(this);
-        this.changePrecioCompra = this.changePrecioCompra.bind(this);
+        this.changeCodigoVenta = this.changeCodigoVenta.bind(this);
+        this.changeClienteId = this.changeClienteId.bind(this);
         this.changePrecioVenta = this.changePrecioVenta.bind(this);
-        this.changeStock = this.changeStock.bind(this);
+        this.changeUnidades = this.changeUnidades.bind(this);
         this.executeRegister = this.executeRegister.bind(this);
     }
 
 
-    changeIdCodigo(event) {
-        this.setState({idCodigo: event.target.value});
+    changeCodigoVenta(event) {
+        this.setState({codigoProducto: event.target.value});
     }
 
-    changeDescripcion(event) {
-        this.setState({descripcion: event.target.value});
-    }
-
-    changeStock(event) {
-        this.setState({stock: event.target.value});
-    }
-
-    /*changeAplicarDescuento(event) {
-      this.setState({ aplicaDescuento: event.target.value });
-    }
-
-    changeAplicarPromo(event) {
-      this.setState({ aplicaPromo: event.target.value });
-    }*/
-
-    changePrecioCompra(event) {
-        this.setState({precioCompra: event.target.value});
+    changeClienteId(event) {
+        this.setState({clienteId: event.target.value});
     }
 
     changePrecioVenta(event) {
         this.setState({precioVenta: event.target.value});
     }
 
+    changeUnidades(event) {
+        this.setState({unidades: event.target.value});
+    }
+
     executeRegister() {
-        registrarProducto({
-            idCodigo: this.state.idCodigo,
-            descripcion: this.state.descripcion,
-            precioCompra: this.state.precioCompra,
+        registrarVenta({
+            idCodigo: this.state.codigoProducto,
+            clienteId: this.state.clienteId,
             precioVenta: this.state.precioVenta,
-            stock: this.state.stock
+            unidades: this.state.unidades
         })
             .then((res) => {
                 console.log(res)
@@ -90,22 +75,19 @@ export default class RegistrarProducto extends Component {
 
     render() {
         return (
-            <div className="RegistrarProducto">
+            <div className="RegistrarVenta">
                 <div className="container flex-center">
                     <Form>
-
-                        <h1> Registrar Producto </h1>
+                        <h1> Registrar Venta </h1>
                         <div className="FormContainer ">
                             <Form.Row
-                                className="p30">{this.renderInput('IdCodigo', this.state.idCodigo, 'text', this.changeIdCodigo)}</Form.Row>
+                                className="p30">{this.renderInput('Codigo Producto', this.state.codigoProducto, 'numeric', this.changeCodigoVenta)}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('Descripcion', this.state.descripcion, 'text', this.changeDescripcion)}</Form.Row>
+                                className="p30">{this.renderInput('CUIT Cliente', this.state.clienteId, 'text', this.changeClienteId)}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('PrecioCompra', this.state.precioCompra, 'numeric', this.changePrecioCompra)}</Form.Row>
+                                className="p30">{this.renderInput('Precio De Venta', this.state.precioVenta, 'numeric', this.changePrecioVenta)}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('PrecioVenta', this.state.precioVenta, 'numeric', this.changePrecioVenta)}</Form.Row>
-                            <Form.Row
-                                className="p30">{this.renderInput('Stock', this.state.stock, 'numeric', this.changeStock)}</Form.Row>
+                                className="p30">{this.renderInput('Unidades', this.state.unidades, 'numeric', this.changeUnidades)}</Form.Row>
                         </div>
                         <div className="col-12 p30 flex-center ">
                             <button type="button" className="btn btn-primary" onClick={this.executeRegister}>Registrar

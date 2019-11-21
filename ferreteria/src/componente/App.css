@@ -68,6 +68,14 @@
 
 }
 
+.RegistrarVenta{
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-image: url("fondoweb.jpg");
+}
 .col-3 {
     background-repeat: no-repeat;
     background-size: cover;

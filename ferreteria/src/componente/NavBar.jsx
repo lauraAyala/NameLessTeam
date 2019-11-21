@@ -25,6 +25,8 @@ class NavBarDW extends React.Component {
                               to={{pathname: "/clientes"}}>Clientes Activos</Link>
                         <Link className="nav-link"
                               to={{pathname: "/productos"}}>Productos</Link>
+                        <Link className="nav-link"
+                              to={{pathname: "/registrarVenta"}}>Registrar Venta</Link>
                     </Nav>
                 </Navbar>
             </div>
