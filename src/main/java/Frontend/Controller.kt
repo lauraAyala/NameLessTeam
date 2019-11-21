@@ -5,12 +5,14 @@ import backend.modelo.Ferreteria
 import backend.modelo.Producto
 import backend.modelo.Venta
 import backend.service.ClienteService
+import backend.service.ProductoService
 import io.javalin.http.Context
 
 class ControllerStock() {
 
     val ferreteria = Ferreteria("Bacco")
     val clienteService = ClienteService();
+    val productoService = ProductoService();
 
     fun crearCliente(ctx: Context) {
         val validar = Validar()
@@ -34,6 +36,7 @@ class ControllerStock() {
         try {
             val producto = Producto(nuevoProducto.idCodigo, nuevoProducto.descripcion, nuevoProducto.precioCompra, nuevoProducto.precioVenta, nuevoProducto.stock)
             ferreteria.agregarProducto(producto)
+            productoService.guardarProducto(producto)
             ctx.status(201)
             ctx.json(producto)
         } catch (e: IllegalArgumentException) {

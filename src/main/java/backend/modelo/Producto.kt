@@ -4,21 +4,25 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "producto")
+@Table
 
-class Producto {
+class Producto() {
+
     @Id
-    var idCodigo: Int
-    @Column(name = "descripcion")
-    var descripcion: String
-    @Column(name = "precioCompra")
-    var precioCompra: Double
-    @Column(name = "precioVenta")
-    var precioVenta: Double
-    @Column(name = "stock")
-    var stock: Int
+    @GeneratedValue
+    var id: Int? = null
 
-    constructor(idCodigo: Int, descripcion: String, precioCompra: Double, precioVenta: Double, stock: Int) {
+    var idCodigo: Int = 0
+
+    lateinit var descripcion: String
+
+    var precioCompra: Double = 0.0
+
+    var precioVenta: Double = 0.0
+
+    var stock: Int = 0
+
+    constructor(idCodigo: Int, descripcion: String, precioCompra: Double, precioVenta: Double, stock: Int) : this() {
         this.idCodigo = idCodigo
         this.descripcion = descripcion
         this.precioCompra = precioCompra
