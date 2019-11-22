@@ -1,15 +1,13 @@
 package backend.service
 
 
-import backend.dao.DataDAO
 import backend.dao.ProductoDAO
 import backend.modelo.Producto
 
 class ProductoService {
 
 
-    private val productoDAO = ProductoDAO()
-    private val dataDAO: DataDAO? = null
+    private var productoDAO = ProductoDAO()
 
     val allProductos: Collection<Producto?>?
         get() = run { this.productoDAO!!.getAllProducts() }

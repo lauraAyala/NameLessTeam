@@ -46,7 +46,8 @@ class ControllerStock() {
 
     fun getProductos(ctx: Context) {
         ctx.status(200)
-        ctx.json(ferreteria.productos.map { ProductoView(it) })
+        val todosLosProductos = productoService.allProductos;
+        todosLosProductos?.map { ProductoView(it!!) }?.let { ctx.json(it) }
     }
 
     fun getClientes(ctx: Context) {
