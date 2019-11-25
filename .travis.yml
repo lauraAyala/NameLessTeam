@@ -4,5 +4,9 @@
   ],
   "language": "java"
 
-  "script": -./gradlew build
-}
+  "jdk": - openjdk1.8
+ }
+
+
+
+
