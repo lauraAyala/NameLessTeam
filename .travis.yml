@@ -3,4 +3,6 @@
     "linux"
   ],
   "language": "java"
+
+  "script": -./gradlew build
 }
