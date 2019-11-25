@@ -1,3 +1,6 @@
-language: kotlin
-
-
+{
+  "os": [
+    "linux"
+  ],
+  "language": "java"
+}
