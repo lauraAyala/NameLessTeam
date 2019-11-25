@@ -22,7 +22,7 @@ class Producto() {
 
     var stock: Int = 0
 
-    constructor(idCodigo: Int, descripcion: String, precioCompra: Double, precioVenta: Double, stock: Int) : this() {
+    constructor(idCodigo: Int, descripcion: String, precioCompra: Double, precioVenta: Double, stock:Int) : this() {
         this.idCodigo = idCodigo
         this.descripcion = descripcion
         this.precioCompra = precioCompra
