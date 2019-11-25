@@ -2,6 +2,5 @@
   "os": [
     "linux"
   ],
-  "kotlin": "1.3.50",
   "language": "kotlin"
 }
