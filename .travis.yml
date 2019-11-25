@@ -1,0 +1,4 @@
+language: kotlin
+kotlin: 1.3.50
+sudo: false
+jdk: - oraclejdk8
