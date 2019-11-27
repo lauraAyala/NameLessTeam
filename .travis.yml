@@ -1,12 +1,4 @@
-{
-  "os": [
-    "linux"
-  ],
-  "language": "java"
-
-  "jdk": -openjdk1.8
- }
-
-
-
-
+language: java
+sudo: false # faster builds
+jdk:
+  - oraclejdk1.8
