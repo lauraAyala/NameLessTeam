@@ -15,8 +15,8 @@ class ControllerStock() {
     val clienteService = ClienteService();
     val productoService = ProductoService();
     val ventaService = VentaService();
-    val productosRecuperados = productoService.allProductos
-    val clientesRecuperados = clienteService.allClientes
+    var productosRecuperados = productoService.allProductos
+    var clientesRecuperados = clienteService.allClientes
 
 
     fun recuperarDatos(){
@@ -62,13 +62,13 @@ class ControllerStock() {
 
     fun getProductos(ctx: Context) {
         ctx.status(200)
-        val todosLosProductos = productoService.allProductos;
+        var todosLosProductos = ferreteria.productos;
         todosLosProductos?.map { ProductoView(it!!) }?.let { ctx.json(it) }
     }
 
     fun getClientes(ctx: Context) {
         ctx.status(200)
-        val todosLosClientes = clienteService.allClientes;
+        var todosLosClientes = ferreteria.clientes;
         todosLosClientes?.map { ClienteView(it!!) }?.let { ctx.json(it) }
     }
 
