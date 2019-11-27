@@ -6,6 +6,7 @@ import backend.modelo.Producto
 import backend.modelo.Venta
 import backend.service.ClienteService
 import backend.service.ProductoService
+import backend.service.VentaService
 import io.javalin.http.Context
 
 class ControllerStock() {
@@ -13,6 +14,21 @@ class ControllerStock() {
     val ferreteria = Ferreteria("Bacco")
     val clienteService = ClienteService();
     val productoService = ProductoService();
+    val ventaService = VentaService();
+    val productosRecuperados = productoService.allProductos
+    val clientesRecuperados = clienteService.allClientes
+
+
+    fun recuperarDatos(){
+       for(producto in productosRecuperados!!){
+           ferreteria.productos.add(producto!!)
+       }
+        for(cliente in clientesRecuperados!!){
+            ferreteria.clientes.add(cliente!!)
+        }
+    }
+
+
 
     fun crearCliente(ctx: Context) {
         val validar = Validar()
@@ -61,6 +77,8 @@ class ControllerStock() {
         val venta = validar.validarVenta(ctx)
         try {
             val nuevaVenta = Venta(venta.idCodigo, venta.clienteId, venta.precioVenta, venta.unidades);
+            ferreteria.realizarVenta(venta.idCodigo, venta.clienteId, venta.precioVenta, venta.unidades)
+            ventaService.guardarVenta(nuevaVenta);
             ctx.json(nuevaVenta)
             ctx.status(201)
         } catch (e: IllegalArgumentException) {

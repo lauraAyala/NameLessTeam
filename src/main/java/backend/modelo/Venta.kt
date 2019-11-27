@@ -3,23 +3,23 @@ package backend.modelo
 import javax.persistence.*
 
 @Entity
-@Table(name = "ventas")
-class Venta {
+@Table
+class Venta() {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     var id: Int? = null
-    @Column(name = "idCodigo")
-    var idCodigo: Int
-    @Column(name = "clienteId")
-    var clienteId: String
-    @Column(name = "precioVenta")
-    var precioVenta: Double
-    @Column(name = "cantidad")
-    var unidades: Int
+
+    var idCodigo: Int = 0
+
+    lateinit var clienteId: String
+
+    var precioVenta: Double = 0.0
+
+    var unidades: Int = 0
 
 
-    constructor(idCodigo: Int, clienteId: String, precioVenta: Double, unidades: Int) {
+    constructor(idCodigo: Int, clienteId: String, precioVenta: Double, unidades: Int) : this() {
         this.idCodigo = idCodigo
         this.clienteId = clienteId
         this.precioVenta = precioVenta

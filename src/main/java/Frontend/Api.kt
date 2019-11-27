@@ -23,6 +23,8 @@ class ApiFerreteria(private val  port:Int) {
                 .start(port)
         val apiController = ControllerStock()
 
+        val datos = apiController.recuperarDatos()
+
         app.routes {
             path("registrar") {
                 post(apiController::crearCliente)

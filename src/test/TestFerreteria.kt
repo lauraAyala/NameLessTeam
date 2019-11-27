@@ -3,6 +3,7 @@ import backend.modelo.Ferreteria
 import backend.modelo.Producto
 import org.junit.jupiter.api.*
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -92,7 +93,7 @@ class TestFerreteria {
         ferreteria.agregarCliente(cliente);
         ferreteria.agregarProducto(producto);
         // realizo la venta.
-        ferreteria.realizarVenta(producto,500, cliente.cuit);
+        ferreteria.realizarVenta(producto.idCodigo, cliente.cuit,producto.precioVenta, 500);
 
         assertEquals(500,ferreteria.stockActualDe(producto.idCodigo))
 
@@ -109,6 +110,20 @@ class TestFerreteria {
         ferreteria.stockActualDe(producto.idCodigo);
 
         assertEquals(1000,ferreteria.stockActualDe(producto.idCodigo))
+
+    }
+
+    @Test
+    fun test12QuieroRealizarUnaVentaPeroNoTengoStock() {
+        var ferreteria = Ferreteria("Stanley");
+        var cliente = Cliente("Jose", "Tornillo", "Calle falsa 123", 1143657100, "20-43657100-4", true, false);
+        var producto = Producto(1, "Tornillo de 2 pulgadas", 10.0, 25.0, 250);
+        ferreteria.agregarCliente(cliente);
+        ferreteria.agregarProducto(producto);
+        // realizo la venta.
+        assertFailsWith(Exception::class){
+            ferreteria.realizarVenta(producto.idCodigo, cliente.cuit,producto.precioVenta, 500);
+        }
 
     }
 

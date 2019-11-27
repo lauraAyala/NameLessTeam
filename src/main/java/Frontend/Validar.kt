@@ -13,8 +13,7 @@ class Validar {
             cliente.check({ it.apellido!!.isNotBlank() }, "Lastname can't be empty ").get()
             cliente.check({ it.apellido!!.matches(Regex("^[a-zA-Z*]*$")) }, "The last name can only be composed of latters  ").get()
             cliente.check({ it.domicilio!!.isNotBlank() }, "domicilio no puede ser vacio").get()
-            //cliente.check({ it.cuit!!.isNotBlank() }, "cuit no puede ser vacio").get()
-            //cliente.check({ it.cuit!!.matches(Regex("\\d*")) }, "el cuit tiene que tener numeros positivos").get()
+
 
         } catch (e: NoSuchElementException) {
             cxt.json(Handler(400, "Bad request", e.message!!))
