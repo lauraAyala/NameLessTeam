@@ -67,7 +67,7 @@ export default class RegistrarProducto extends Component {
 
 
             }).catch((error) => {
-            this.setState({error: error.response.data.message})
+            this.setState({error: error.response.data.title})
 
         })
 
@@ -113,6 +113,9 @@ export default class RegistrarProducto extends Component {
                             <button type="button" className=" btn btn-secondary ml-1rem "
                                     onClick={() => this.handleClickBack()}>Volver
                             </button>
+                        </div>
+                        <div className="col-12 " >
+                                {this.state.error && this.state.error}
                         </div>
                     </Form>
                 </div>

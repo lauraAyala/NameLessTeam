@@ -43,7 +43,8 @@ class RegistrarCliente extends React.Component {
 
         axios.post(endpoint, params)
             .then(response => this.props.history.push('/', response.body))
-            .catch((error) => console.log(error));
+            .catch((error) => this.setState({ error: error.response.data.title })) 
+            
     }
 
 
@@ -115,6 +116,9 @@ class RegistrarCliente extends React.Component {
                                     <Button onClick={() => this.handleClick()}>Registrar</Button>
                                     <Button variant="dark" className={"ml-1rem"}
                                             onClick={() => this.handleClick2()}>Cancelar</Button>
+                                </div>
+                                <div className="col-12 " >
+                                    {this.state.error && this.state.error}
                                 </div>
                             </div>
                         </div>

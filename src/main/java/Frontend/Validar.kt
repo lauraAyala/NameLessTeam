@@ -6,55 +6,48 @@ class Validar {
 
     fun validarCliente(cxt: Context): ClienteView {
         var cliente = cxt.bodyValidator(ClienteView::class.java)
-        try {
+        .check({ it.nombre!!.isNotBlank() }, "El campo nombre no puede ser vacio ")
+        .check({ it.nombre!!.matches(Regex("^[a-zA-Z*]*$")) }, "No ingreso un nombre correcto. Debe estar compuesto de letras ")
+        .check({ it.apellido!!.isNotBlank() }, "El campo apellido no puede estar vacio ")
+        .check({ it.apellido!!.matches(Regex("^[a-zA-Z*]*$")) }, "No ingreso un nombre correcto. Debe estar compuesto de letras  ")
+        .check({ it.domicilio!!.isNotBlank() }, "domicilio no puede ser vacio ")
+        .check({ it.contacto.toString().isNotBlank() }, "El campo contacto no puede estar vacio ")
+        .check({ it.contacto.toString().matches(Regex("\\d*")) }, "El campo contacto tiene que estar compuesto por numeros sin guiones ")
+        .check({ it.cuit.toString().isNotBlank() }, "El campo cuit no puede estar vacio ")
+        .check({ it.cuit.toString().matches(Regex("\\d*")) }, "El campo cuit tiene que estar compuesto por numeros sin guiones ")
+        .get()
 
-            cliente.check({ it.nombre!!.isNotBlank() }, "Name can't be empty ").get()
-            cliente.check({ it.nombre!!.matches(Regex("^[a-zA-Z*]*$")) }, "The first name can only be composed of latters").get()
-            cliente.check({ it.apellido!!.isNotBlank() }, "Lastname can't be empty ").get()
-            cliente.check({ it.apellido!!.matches(Regex("^[a-zA-Z*]*$")) }, "The last name can only be composed of latters  ").get()
-            cliente.check({ it.domicilio!!.isNotBlank() }, "domicilio no puede ser vacio").get()
-
-
-        } catch (e: NoSuchElementException) {
-            cxt.json(Handler(400, "Bad request", e.message!!))
-        } catch (e: java.lang.Exception) {
-            cxt.json(Handler(400, "Bad request", "Json keys must be firstName, lastName,password,idCard y email"))
-        }
-        return cliente.get()
+        return cliente
     }
 
     fun validarProducto(ctx: Context): ProductoView {
         val producto = ctx.bodyValidator(ProductoView::class.java)
-        try {
-            producto.check({ it.idCodigo!!.toString().isNotBlank() }, "idCodigo no puede estar vacio ").get()
-            producto.check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros").get()
-            producto.check({ it.descripcion!!.isNotBlank() }, "descripcion no puede estar vacia").get()
-            producto.check({ it.descripcion!!.matches(Regex("^[a-zA-Z*]*$")) }, "Descripcion debe tener un formato de letras").get()
-            producto.check({ it.precioCompra!!.toString().isNotBlank() }, "precio de compra no puede ser vacio").get()
-            producto.check({ it.precioVenta!!.toString().isNotBlank() }, "precio de venta no puede ser vacio").get()
+            .check({ it.idCodigo!!.toString().isNotBlank() }, "idCodigo no puede estar vacio ")
+            .check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros")
+            .check({ it.descripcion!!.isNotBlank() }, "descripcion no puede estar vacia")
+            .check({ it.descripcion!!.matches(Regex("^[a-zA-Z*]*$")) }, "Descripcion debe tener un formato de letras")
+            .check({ it.precioCompra!!.toString().isNotBlank() }, "precio de compra no puede ser vacio")
+            .check({ it.precioVenta!!.toString().matches(Regex("\\d*")) }, "El precio de compra no pueden ser letras, sino un precio valido ")
+            .check({ it.precioVenta!!.toString().isNotBlank() }, "precio de venta no puede ser vacio")
+            .check({ it.precioVenta!!.toString().matches(Regex("\\d*")) }, "El precio de venta no pueden ser letras, sino un precio valido ")
+            .check({ it.stock.toString().isNotBlank() }, "El campo stock no puede estar vacio ")
+            .check({ it.stock.toString().matches(Regex("\\d*")) }, "El campo stock es invalido ")
+            .get()
 
-        } catch (e: NoSuchElementException) {
-            ctx.json(Handler(400, "Bad request", e.message!!))
-        } catch (e: java.lang.Exception) {
-            ctx.json(Handler(400, "Bad request", "Error en la estructura de la consulta JSON"))
-        }
-        return producto.get()
+        return producto
     }
 
     fun validarVenta(ctx: Context): VentaView {
         val venta = ctx.bodyValidator(VentaView::class.java)
-        try {
-            venta.check({ it.idCodigo!!.toString().isNotBlank() }, "idCodigo no puede estar vacio ").get()
-            venta.check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros").get()
-            venta.check({ it.clienteId!!.toString().isNotBlank() }, "idCliente no puede ser vacio").get()
-            venta.check({ it.precioVenta!!.toString().isNotBlank() }, "precio de venta no puede ser vacio").get()
+        .check({ it.idCodigo!!.toString().isNotBlank() }, "idCodigo no puede estar vacio ")
+        .check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros ")
+        .check({ it.clienteId!!.toString().matches(Regex("\\d*")) }, "CUIT cliente no pueden ser letras, sino numeros validos ")
+        .check({ it.clienteId!!.toString().isNotBlank() }, "idCliente no puede ser vacio ")
+        .check({ it.precioVenta!!.toString().isNotBlank() }, "precio de venta no puede ser vacio ")
+        .check({ it.precioVenta!!.toString().matches(Regex("\\d*")) }, "El precio de venta no pueden ser letras, sino un precio valido ")
+        .get()
 
-        } catch (e: NoSuchElementException) {
-            ctx.json(Handler(400, "Bad request", e.message!!))
-        } catch (e: java.lang.Exception) {
-            ctx.json(Handler(400, "Bad request", "Error en la estructura de la consulta JSON"))
-        }
-        return venta.get()
+        return venta
     }
 }
 
