@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {registrarProducto} from './api/Api';
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 
 export default class RegistrarProducto extends Component {
@@ -37,14 +38,6 @@ export default class RegistrarProducto extends Component {
         this.setState({stock: event.target.value});
     }
 
-    /*changeAplicarDescuento(event) {
-      this.setState({ aplicaDescuento: event.target.value });
-    }
-
-    changeAplicarPromo(event) {
-      this.setState({ aplicaPromo: event.target.value });
-    }*/
-
     changePrecioCompra(event) {
         this.setState({precioCompra: event.target.value});
     }
@@ -54,23 +47,47 @@ export default class RegistrarProducto extends Component {
     }
 
     executeRegister() {
-        registrarProducto({
-            idCodigo: this.state.idCodigo,
-            descripcion: this.state.descripcion,
-            precioCompra: this.state.precioCompra,
-            precioVenta: this.state.precioVenta,
-            stock: this.state.stock
-        })
-            .then((res) => {
-                console.log(res)
-                this.props.history.push('/');
+        const {idCodigo, descripcion, precioCompra, precioVenta, stock} = this.state;
+        let params = {idCodigo, descripcion, precioCompra, precioVenta, stock};
+        if (this.validarDatos(params)) {
+            registrarProducto({
+                idCodigo: this.state.idCodigo,
+                descripcion: this.state.descripcion,
+                precioCompra: this.state.precioCompra,
+                precioVenta: this.state.precioVenta,
+                stock: this.state.stock
+            })
+                .then((res) => {
+                    console.log(res);
+                    this.props.history.push('/');
 
 
-            }).catch((error) => {
-            this.setState({error: error.response.data.title})
+                }).catch((error) => {
+                this.setState({error: error.response.data.title})
 
-        })
+            })
+        }
+    }
 
+    isEmpty(value) {
+        return (typeof value === 'undefined' || value === null || value === '');
+    }
+
+    validarDatos(params) {
+        if (this.isEmpty(params.idCodigo) && this.isEmpty(params.descripcion) && this.isEmpty(params.precioCompra) && this.isEmpty(params.precioVenta) && this.isEmpty(params.stock)) {
+            this.setState({error: 'Por favor,complete todos los datos.'});
+            return false
+        }
+        if (params.precioCompra > 0 || params.precioVenta > 0) {
+            this.setState({error: 'Por favor, ingrese un monto válido.'});
+            return false
+        }
+
+        if (params.stock > 0 || isNaN(params.stock)) {
+            this.setState({error: 'Por favor, ingrese un monto válido.'});
+            return false
+        }
+        return true;
     }
 
     handleClickBack() {
@@ -114,8 +131,9 @@ export default class RegistrarProducto extends Component {
                                     onClick={() => this.handleClickBack()}>Volver
                             </button>
                         </div>
-                        <div className="col-12 " >
-                                {this.state.error && this.state.error}
+                        <div className={"Warning mt-4 col-12"}>
+                            {this.state.error &&
+                            <Alert variant="danger">{this.state.error}</Alert>}
                         </div>
                     </Form>
                 </div>

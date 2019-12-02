@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios"
+import Alert from "react-bootstrap/Alert";
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -19,7 +20,8 @@ class RegistrarCliente extends React.Component {
             contacto: '',
             cuit: '',
             esConsumidorFinal: '',
-            esResponsableInscripto: ''
+            esResponsableInscripto: '',
+            error: ''
         };
 
     }
@@ -29,28 +31,40 @@ class RegistrarCliente extends React.Component {
         const {nombre, apellido, domicilio, contacto, cuit, esConsumidorFinal, esResponsableInscripto} = this.state;
         let params = {nombre, apellido, domicilio, contacto, cuit, esConsumidorFinal, esResponsableInscripto};
 
-        console.log({
-            nombre: nombre,
-            apellido: apellido,
-            domicilio: domicilio,
-            contacto: contacto,
-            cuit: cuit,
-            esConsumidorFinal: esConsumidorFinal,
-            esResponsableInscripto: esResponsableInscripto
-        });
 
-        let endpoint = 'http://localhost:7000/registrar';
-
-        axios.post(endpoint, params)
-            .then(response => this.props.history.push('/', response.body))
-            .catch((error) => this.setState({ error: error.response.data.title })) 
-            
+        if (this.validarDatos(params)) {
+            let endpoint = 'http://localhost:7000/registrar';
+            axios.post(endpoint, params)
+                .then(response => this.props.history.push('/', response.body))
+                .catch((error) => this.setState({error: error.response.data.title}))
+        }
     }
 
 
     handleClick2() {
         this.props.history.push('/');
     }
+
+
+    isEmpty(value) {
+        return (typeof value === 'undefined' || value === null || value === '');
+    }
+
+
+    validarDatos(params) {
+        if (this.isEmpty(params.nombre) && this.isEmpty(params.apellido) && this.isEmpty(params.domicilio) && this.isEmpty(params.cuit) && this.isEmpty(params.contacto)) {
+            this.setState({error: 'Por favor, complete todos los datos.'});
+            return false
+        }
+
+        if (isNaN(params.contacto)) {
+            this.setState({error: 'Por favor, ingrese un número de télefono válido.'});
+            return false
+        }
+
+        return true;
+    }
+
 
     render() {
         return (
@@ -117,8 +131,9 @@ class RegistrarCliente extends React.Component {
                                     <Button variant="dark" className={"ml-1rem"}
                                             onClick={() => this.handleClick2()}>Cancelar</Button>
                                 </div>
-                                <div className="col-12 " >
-                                    {this.state.error && this.state.error}
+                                <div className={"Warning mt-4 col-12"}>
+                                    {this.state.error &&
+                                    <Alert variant="danger">{this.state.error}</Alert>}
                                 </div>
                             </div>
                         </div>

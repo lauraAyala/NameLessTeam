@@ -40,11 +40,11 @@ class Validar {
     fun validarVenta(ctx: Context): VentaView {
         val venta = ctx.bodyValidator(VentaView::class.java)
         .check({ it.idCodigo!!.toString().isNotBlank() }, "idCodigo no puede estar vacio ")
-        .check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros ")
+        //.check({ it.idCodigo!!.toString().matches(Regex("\\d*")) }, "idCodigo no pueden ser letras, sino numeros ")
         .check({ it.clienteId!!.toString().matches(Regex("\\d*")) }, "CUIT cliente no pueden ser letras, sino numeros validos ")
         .check({ it.clienteId!!.toString().isNotBlank() }, "idCliente no puede ser vacio ")
         .check({ it.precioVenta!!.toString().isNotBlank() }, "precio de venta no puede ser vacio ")
-        .check({ it.precioVenta!!.toString().matches(Regex("\\d*")) }, "El precio de venta no pueden ser letras, sino un precio valido ")
+        //.check({ it.precioVenta!!.toString().matches(Regex("\\d*")) }, "El precio de venta no pueden ser letras, sino un precio valido ")
         .get()
 
         return venta

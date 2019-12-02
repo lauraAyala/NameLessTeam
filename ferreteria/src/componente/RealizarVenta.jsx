@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {registrarVenta} from './api/Api';
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 
 export default class RealizarVenta extends Component {
@@ -40,22 +41,46 @@ export default class RealizarVenta extends Component {
     }
 
     executeRegister() {
-        registrarVenta({
-            idCodigo: this.state.codigoProducto,
-            clienteId: this.state.clienteId,
-            precioVenta: this.state.precioVenta,
-            unidades: this.state.unidades
-        })
-            .then((res) => {
-                console.log(res)
-                this.props.history.push('/');
+        const {idCodigo, clienteId, precioVenta, unidades} = this.state;
+        let params = {idCodigo, clienteId, precioVenta, unidades};
+        if (this.validarDatos(params)) {
+            registrarVenta({
+                idCodigo: this.state.codigoProducto,
+                clienteId: this.state.clienteId,
+                precioVenta: this.state.precioVenta,
+                unidades: this.state.unidades
+            })
+                .then((res) => {
+                    console.log(res)
+                    this.props.history.push('/');
 
 
-            }).catch((error) => {
-            this.setState({error: error.response.data.title})
+                }).catch((error) => {
+                this.setState({error: error.response.data.title})
 
-        })
+            })
+        }
+    }
 
+    isEmpty(value) {
+        return (typeof value === 'undefined' || value === null || value === '');
+    }
+
+    validarDatos(params) {
+        if (this.isEmpty(params.idCodigo) && this.isEmpty(params.clienteId) && this.isEmpty(params.precioVenta) && this.isEmpty(params.unidades)) {
+            this.setState({error: 'Por favor,complete todos los datos.'});
+            return false
+        }
+        if (params.precioVenta > 0 || isNaN(params.precioVenta)) {
+            this.setState({error: 'Por favor, ingrese un monto válido.'});
+            return false
+        }
+
+        if (params.unidades > 0 || isNaN(params.unidades)) {
+            this.setState({error: 'Por favor, ingrese un monto válido.'});
+            return false
+        }
+        return true;
     }
 
     handleClickBack() {
@@ -96,8 +121,9 @@ export default class RealizarVenta extends Component {
                                     onClick={() => this.handleClickBack()}>Volver
                             </button>
                         </div>
-                        <div className="col-12 " >
-                            {this.state.error && this.state.error}
+                        <div className={"Warning mt-4 col-12"}>
+                            {this.state.error &&
+                            <Alert variant="danger">{this.state.error}</Alert>}
                         </div>
                     </Form>
                 </div>
