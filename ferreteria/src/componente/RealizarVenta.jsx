@@ -71,12 +71,13 @@ export default class RealizarVenta extends Component {
             this.setState({error: 'Por favor,complete todos los datos.'});
             return false
         }
-        if (params.precioVenta > 0 || isNaN(params.precioVenta)) {
+
+        if (params.precioVenta < 0 || isNaN(params.precioVenta)) {
             this.setState({error: 'Por favor, ingrese un monto válido.'});
             return false
         }
 
-        if (params.unidades > 0 || isNaN(params.unidades)) {
+        if (params.unidades < 0 || isNaN(params.unidades)) {
             this.setState({error: 'Por favor, ingrese un monto válido.'});
             return false
         }

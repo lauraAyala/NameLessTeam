@@ -78,12 +78,12 @@ export default class RegistrarProducto extends Component {
             this.setState({error: 'Por favor,complete todos los datos.'});
             return false
         }
-        if (params.precioCompra > 0 || params.precioVenta > 0) {
+        if (params.precioCompra < 0 || params.precioVenta < 0) {
             this.setState({error: 'Por favor, ingrese un monto válido.'});
             return false
         }
 
-        if (params.stock > 0 || isNaN(params.stock)) {
+        if (params.stock < 0 || isNaN(params.stock)) {
             this.setState({error: 'Por favor, ingrese un monto válido.'});
             return false
         }
