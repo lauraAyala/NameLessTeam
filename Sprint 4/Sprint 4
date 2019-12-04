@@ -2,9 +2,10 @@ SPRINT 4:
 
 La estimacion de nuestro sprint es de 9 puntos de historia.
 
+La historia de usuario  a realizar en el el sprint es:
+Yo como: administrador Quiero: registrar una venta de un cliente Para: saber mi stock
+Yo como:administrador Quiero: validar los campos de mi  registrar cliente
+Yo como:administrador Quiero: validar los campos de mi  registrar producto
+Yo como:administrador Quiero: validar los campos de mi  registrar venta
+Yo como:administrador Quiero: poder ver un alerta cuando se ingresan mal los campos
 
-Para este sprint agregamos:
-Validaciones
-Alertas de error
-Place holder
-para que el usuario pueda saber mirando la interfaz en que se equivoco o que debe ingresar en cada campo
