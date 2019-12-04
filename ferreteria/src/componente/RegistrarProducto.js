@@ -94,12 +94,12 @@ export default class RegistrarProducto extends Component {
         this.props.history.push(`/`);
     }
 
-    renderInput(label, value, inputType, onChange) {
+    renderInput(label, value, inputType, onChange,placeholder) {
         return (
             <div className="form-group row">
                 <label className="col-sm-3 col-form-label">{label}</label>
                 <div className="col-sm-9">
-                    <input type={inputType} className="form-control" value={value} onChange={onChange}/>
+                    <input placeholder={placeholder || label} type={inputType} className="form-control" value={value} onChange={onChange}/>
                 </div>
             </div>
         );
@@ -114,15 +114,15 @@ export default class RegistrarProducto extends Component {
                         <h1> Registrar Producto </h1>
                         <div className="FormContainer ">
                             <Form.Row
-                                className="p30">{this.renderInput('IdCodigo', this.state.idCodigo, 'text', this.changeIdCodigo)}</Form.Row>
+                                className="p30">{this.renderInput('IdCodigo', this.state.idCodigo,'numeric', this.changeIdCodigo,"xxxxx")}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('Descripcion', this.state.descripcion, 'text', this.changeDescripcion)}</Form.Row>
+                                className="p30">{this.renderInput('Descripcion', this.state.descripcion,'text', this.changeDescripcion,"Descripcion de producto")}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('PrecioCompra', this.state.precioCompra, 'numeric', this.changePrecioCompra)}</Form.Row>
+                                className="p30">{this.renderInput('PrecioCompra', this.state.precioCompra,'numeric', this.changePrecioCompra,"Precio de compra")}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('PrecioVenta', this.state.precioVenta, 'numeric', this.changePrecioVenta)}</Form.Row>
+                                className="p30">{this.renderInput('PrecioVenta', this.state.precioVenta,'numeric', this.changePrecioVenta,"Precio de venta")}</Form.Row>
                             <Form.Row
-                                className="p30">{this.renderInput('Stock', this.state.stock, 'numeric', this.changeStock)}</Form.Row>
+                                className="p30">{this.renderInput('Stock', this.state.stock,'numeric', this.changeStock,"Stock de producto")}</Form.Row>
                         </div>
                         <div className="col-12 p30 flex-center ">
                             <button type="button" className="btn btn-primary" onClick={this.executeRegister}>Registrar

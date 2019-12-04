@@ -66,7 +66,7 @@ class RegistrarCliente extends React.Component {
     }
 
 
-    render() {
+    render(placeholder,label) {
         return (
             <div>
                 <div className={"MiddlePage"}>
@@ -78,7 +78,7 @@ class RegistrarCliente extends React.Component {
                                     <div className="row">
                                         <div className="col-sm-12 mb-30">
                                             <label>Nombre:</label>
-                                            <input value={this.state.nombre}
+                                            <input placeholder={placeholder || label} value={this.state.nombre, "Nombre"}
                                                    onChange={event => this.setState({nombre: event.target.value})}
                                                    type="text"
                                                    className="form-control"
@@ -86,7 +86,7 @@ class RegistrarCliente extends React.Component {
 
 
                                             <label>Apellido:</label>
-                                            <input value={this.state.apellido}
+                                            <input placeholder={placeholder || label} value={this.state.apellido,"Apellido"}
                                                    onChange={event => this.setState({apellido: event.target.value})}
                                                    type={"text"}
                                                    className="form-control"
@@ -94,21 +94,21 @@ class RegistrarCliente extends React.Component {
 
 
                                             <label>Domicilio:</label>
-                                            <input value={this.state.domicilio}
+                                            <input placeholder={placeholder || label} value={this.state.domicilio,"Domicilio"}
                                                    onChange={event => this.setState({domicilio: event.target.value})}
                                                    type={"text"}
                                                    className="form-control"
                                             />
 
                                             <label>Telefono de Contacto:</label>
-                                            <input value={this.state.contacto}
+                                            <input placeholder={placeholder || label} value={this.state.contacto, "Telefono"}
                                                    onChange={event => this.setState({contacto: event.target.value})}
                                                    type={"numeric"}
                                                    className="form-control"
                                             />
 
                                             <label>CUIT:</label>
-                                            <input value={this.state.cuit}
+                                            <input placeholder={placeholder || label} value={this.state.cuit, "Cuit"}
                                                    onChange={event => this.setState({cuit: event.target.value})}
                                                    type={"numeric"}
                                                    className="form-control"
